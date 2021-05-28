@@ -30,3 +30,12 @@ const getTodos = async function() {
     }
 };
 
+const deleteTodo = async function(id) {
+    try {
+        const res = await fetch((apiURL + id), {
+            method: "DELETE",
+        });
+    } catch(error) {
+        console.log(error);
+    }
+};

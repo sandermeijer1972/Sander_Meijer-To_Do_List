@@ -1,9 +1,37 @@
-const newTodo = { description: "honden uitlaten", done: false };
-const newTodo2 = { description: "brood halen", done: false };
-const newTodo3 = { description: "stofzuigen", done: false };
-const newTodo4 = { description: "afwassen", done: false };
+const list = document.getElementById('lijst');
 
-//postTodo(newTodo);
-//postTodo(newTodo2);
+const getTodoItemOutDOM = async function(id) {
+    await deleteTodo(id);
+    addTodoListToDOM();
+};
 
-getTodos();
+addTodoListToDOM = async function() {
+    list.innerHTML = '';
+    const todos = await getTodos();
+    todos.forEach(todo => {
+        const newLi = document.createElement('li');
+        const newDiv = document.createElement('div');
+        newDiv.innerText = todo.description;
+        newLi.appendChild(newDiv);
+        const newImg = document.createElement('img');
+        newImg.src = "prullenbak.png";
+        newImg.addEventListener("click", () => getTodoItemOutDOM(todo._id));
+        newLi.appendChild(newImg);
+        list.appendChild(newLi);
+    });
+};
+
+addTodoListToDOM();
+
+const newTodoItem = document.getElementById('nieuwetaak');
+
+const addNewTodoToList = async function() {
+    const newTodoValue = newTodoItem.value;
+    const newTodoText = '{description: ' + newTodoValue + ', done: false}';
+    console.log(newTodoText);
+    await postTodo(newTodoText);
+    await addTodoListToDOM();
+};
+
+const addButton = document.getElementById('voegtoe');
+addButton.addEventListener("click", () => addNewTodoToList());

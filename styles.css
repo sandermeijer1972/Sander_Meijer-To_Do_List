@@ -39,9 +39,11 @@ form {
     gap: 10px;
     color: #1A1A00;
     font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px 0;
 }
 
 img {
     width: 40px;
+    cursor: pointer;
 }
-
