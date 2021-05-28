@@ -1,32 +1,9 @@
-const newTaak = {description: "stofzuigen", done: false};
-const apiURL = `http://localhost:3000/`;
+const newTodo = { description: "honden uitlaten", done: false };
+const newTodo2 = { description: "brood halen", done: false };
+const newTodo3 = { description: "stofzuigen", done: false };
+const newTodo4 = { description: "afwassen", done: false };
 
-const giveTaak = () => {
-    fetch(apiURL, {method: "POST",
-        body: JSON.stringify(newTaak),
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-};
+//postTodo(newTodo);
+//postTodo(newTodo2);
 
-giveTaak();
-
-
-const getTaken = async function() {
-    const apiURL = `http://localhost:3000/`;
-    try {
-        const res = await fetch(apiURL, {method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-        console.log("uit te voeren taken: ", data);
-        return data;
-    } catch(error) {
-        console.log(error);
-    }        
-};
-
-getTaken();
+getTodos();
