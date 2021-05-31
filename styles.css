@@ -14,7 +14,7 @@ h1 {
 
 form {
     display: grid;
-    grid-template-columns: 50vw 20vw;
+    grid-template-columns: 55vw 15vw;
     gap: 10px;
     border: solid 2px #4D4D00;
     background-color: #FFFFCC;
@@ -26,22 +26,41 @@ form {
     color: #4D4D00;
 }
 
+#voegtoe {
+    background-color: #FFFF80;
+    cursor: pointer;
+}
+
 #lijst {
     list-style-type: none;
-    background-color: #CCCC00;
+    background-color: #FFFF1A;
     padding: 15px;
     border: solid 1px #4D4D00;
 }
 
 #lijst li {
     display: grid;
-    grid-template-columns: 60vw 10vw;
+    grid-template-columns: 5vw 60vw 5vw;
     gap: 10px;
     color: #1A1A00;
     font-size: 30px;
+    background-color: #CCCC00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 15px 0;
+    margin: 0;
+    padding: 15px;
 }
+
+#lijst li:nth-child(odd) {
+    background-color: #E6E600;
+}
+
+#lijst .done div {
+    text-decoration: line-through;
+}
+
+.checkbox {
+    margin-top: 15px;
+} 
 
 img {
     width: 40px;

@@ -39,3 +39,31 @@ const deleteTodo = async function(id) {
         console.log(error);
     }
 };
+
+const doneTodo = async function(id) {
+    try {
+        await fetch((apiURL + id), {
+            method: "PUT",
+            body: JSON.stringify({done: true}),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+    } catch(error) {
+        console.log(error);
+    }
+};
+
+const notDoneTodo = async function(id) {
+    try {
+        await fetch((apiURL + id), {
+            method: "PUT",
+            body: JSON.stringify({done: false}),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+    } catch(error) {
+        console.log(error);
+    }
+};
