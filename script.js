@@ -6,14 +6,14 @@ const getTodoItemOutDOM = async function(id) {
     await deleteTodo(id);
 };
 
-const updateDoneTodo = async function(id, bool) {
+const updateDoneTodo = async function(id) {
     const updateLi = document.getElementById(id);
-    if (bool == false) {
-        updateLi.classList.add("done");
-        await doneTodo(id);
-    } else if (bool == true) {
+    if (updateLi.classList.contains("done")) {
         updateLi.classList.remove("done");
         await notDoneTodo(id);
+    } else {
+        updateLi.classList.add("done");
+        await doneTodo(id);
     };
 };   
     
@@ -27,7 +27,7 @@ const makeTodoListItem = (todo) => {
         checkbox.checked = true;
         newLi.classList.add("done");
     };
-    checkbox.addEventListener("change", () => updateDoneTodo(todo._id, todo.done));
+    checkbox.addEventListener("change", () => updateDoneTodo(todo._id));
     newLi.appendChild(checkbox);
     const newDiv = document.createElement('div');
     newDiv.innerText = todo.description;
